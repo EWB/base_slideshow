@@ -252,7 +252,7 @@ function base_slideshow_field_default_fields() {
         'file_extensions' => 'png gif jpg jpeg',
         'max_filesize' => '',
         'max_resolution' => '',
-        'min_resolution' => '800x500',
+        'min_resolution' => '',
         'title_field' => 0,
         'user_register_form' => FALSE,
       ),
