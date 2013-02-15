@@ -85,7 +85,7 @@ function base_slideshow_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '-4',
+        'weight' => '2',
       ),
     ),
   );
@@ -153,7 +153,7 @@ function base_slideshow_field_default_fields() {
       'entity_type' => 'node',
       'field_name' => 'field_link',
       'label' => 'Link',
-      'required' => 1,
+      'required' => 0,
       'settings' => array(
         'attributes' => array(
           'class' => '',
@@ -178,7 +178,7 @@ function base_slideshow_field_default_fields() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_field',
-        'weight' => '-2',
+        'weight' => '4',
       ),
     ),
   );
@@ -264,7 +264,7 @@ function base_slideshow_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
-        'weight' => '-3',
+        'weight' => '3',
       ),
     ),
   );
@@ -339,7 +339,87 @@ function base_slideshow_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '-1',
+        'weight' => '5',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-slideshow_slide-field_tags'.
+  $fields['node-slideshow_slide-field_tags'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_tags',
+      'foreign keys' => array(
+        'tid' => array(
+          'columns' => array(
+            'tid' => 'tid',
+          ),
+          'table' => 'taxonomy_term_data',
+        ),
+      ),
+      'indexes' => array(
+        'tid' => array(
+          0 => 'tid',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'taxonomy',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => array(
+            'vocabulary' => 'tags',
+            'parent' => 0,
+          ),
+        ),
+      ),
+      'translatable' => '0',
+      'type' => 'taxonomy_term_reference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'slideshow_slide',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => 4,
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_tags',
+      'label' => 'Tags',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'taxonomy',
+        'settings' => array(
+          'autocomplete_path' => 'taxonomy/autocomplete',
+          'size' => 60,
+        ),
+        'type' => 'taxonomy_autocomplete',
+        'weight' => '1',
       ),
     ),
   );
@@ -354,6 +434,7 @@ function base_slideshow_field_default_fields() {
   t('Please select the slideshow image from your local machine. The image must be at least 800 pixels wide by 500 pixels high.');
   t('Slideshow Image');
   t('Source/Attribution');
+  t('Tags');
 
   return $fields;
 }
